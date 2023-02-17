@@ -1,9 +1,16 @@
+import { Joke, Page } from "@aquacloud/internal";
+import { useQuery } from "@tanstack/react-query";
 import { NextPage } from "next";
 
-const Page: NextPage = (_) => {
+const Page: NextPage = () => {
+  const { data: jokes } = useQuery<Page<Joke>>({
+    queryKey: ["jokes"],
+    queryFn: async () => (await fetch("/api/jokes")).json(),
+  });
+
   return (
     <div className="container">
-      <p>Welcome to the Aquacloud FrontEnd Engineer tech test</p>
+      {jokes && jokes.data.map((joke) => <div key={joke.id}>{joke.value}</div>)}
     </div>
   );
 };
