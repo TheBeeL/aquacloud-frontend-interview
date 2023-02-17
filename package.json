@@ -1,0 +1,17 @@
+{
+  "name": "aquacloud",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "turbo start",
+    "lint": "turbo lint",
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "turbo": "^1.7.4",
+    "typescript": "^4.9.5"
+  }
+}
