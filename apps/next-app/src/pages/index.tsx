@@ -16,9 +16,19 @@ const Page: NextPage = () => {
   });
 
   return (
-    <div className="container">
-      {jokes && jokes.data.map((joke) => <div key={joke.id}>{joke.value}</div>)}
-    </div>
+    <main className="bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 min-h-screen py-2">
+      <div className="container mx-auto flex flex-col gap-2">
+        {jokes &&
+          jokes.data.map((joke) => (
+            <div
+              key={joke.id}
+              className="border border-slate-800/70 dark:border-slate-200/70 rounded p-1"
+            >
+              {joke.value}
+            </div>
+          ))}
+      </div>
+    </main>
   );
 };
 
