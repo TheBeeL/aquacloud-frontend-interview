@@ -1,5 +1,5 @@
 import { fetchJokes } from "@/utils/fetchJokes";
-import { List } from "@aquacloud/ui";
+import { List, Alert } from "@aquacloud/ui";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 
@@ -50,13 +50,15 @@ const JokeResults = ({}: JokeResultsProps) => {
         </List>
       )}
 
-      {!hasNextPage ? (
-        <div>No more Jokes 🙊</div>
-      ) : isFetchingNextPage ? (
-        <div>Fetching nextPage</div>
-      ) : (
-        <div ref={ref} className="h-10 w-full bg-slate-200"></div>
-      )}
+      <div className="px-2">
+        {!hasNextPage ? (
+          <Alert intent="warning" message="No more jokes" />
+        ) : isFetchingNextPage ? (
+          <Alert intent="info" message="Loading..." />
+        ) : (
+          <Alert ref={ref} message="View more" />
+        )}
+      </div>
     </div>
   );
 };
