@@ -16,13 +16,13 @@ const Page: NextPage = () => {
   });
 
   return (
-    <main className="bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 min-h-screen py-2">
+    <main className="min-h-screen bg-slate-200 py-2 text-slate-800 dark:bg-slate-800 dark:text-slate-200">
       <div className="container mx-auto flex flex-col gap-2">
         {jokes &&
           jokes.data.map((joke) => (
             <div
               key={joke.id}
-              className="border border-slate-800/70 dark:border-slate-200/70 rounded p-1"
+              className="rounded border border-slate-800/70 p-1 dark:border-slate-200/70"
             >
               {joke.value}
             </div>
