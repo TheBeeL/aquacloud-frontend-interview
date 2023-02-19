@@ -35,23 +35,23 @@ A few key points:
 
 #### Your code must have the following scripts:
 
-- [ ] `lint` - to run eslint
+- [x] `lint` - to run eslint
 - [ ] `test` - to run unit tests
-- [ ] `start` - to start the app
-- [ ] `build` - to build the app
+- [x] `start` - to start the app
+- [x] `build` - to build the app
 
 ### ✅ Definition of done
 
-- [ ] All the scripts are working without errors
-- [ ] The web app is working without errors
+- [x] All the scripts are working without errors
+- [x] The web app is working without errors
 - [ ] Unit tests are passing
 - [x] Usage of modern hooks is mandatory (no class components)
 
 ### 👉 Bonus Points
 
-- [ ] Implement jokes search
+- [x] Implement jokes search
 - [ ] Your code follows a mobile first approach
-- [ ] The utils are documented according to the [`TSDoc`][tsdoc] standard
+- [x] The utils are documented according to the [`TSDoc`][tsdoc] standard
 - [x] You can choose to implement pagination or infinite scroll
 - [ ] Code Coverage
 - [ ] E2E tests via playwright or cypress

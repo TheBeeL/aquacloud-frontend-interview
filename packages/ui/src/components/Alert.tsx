@@ -1,5 +1,5 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { ForwardedRef, ReactNode, forwardRef } from "react";
+import { ForwardedRef, forwardRef } from "react";
 
 const variants = cva(["rounded p-2 text-center"], {
   variants: {
