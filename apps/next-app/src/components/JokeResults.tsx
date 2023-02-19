@@ -4,10 +4,10 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 
 interface JokeResultsProps {
-  term?: string;
+  term: string;
 }
 
-const JokeResults = ({ term = "" }: JokeResultsProps) => {
+const JokeResults = ({ term }: JokeResultsProps) => {
   const {
     data,
     isLoading,
@@ -41,6 +41,10 @@ const JokeResults = ({ term = "" }: JokeResultsProps) => {
 
   return (
     <div className="flex flex-col gap-2">
+      <div className="text-center text-sm">
+        Showing results for:
+        <span className="font-bold italic">&quot;{term}&quot;</span>
+      </div>
       {data && (
         <List>
           {data.pages.map(
