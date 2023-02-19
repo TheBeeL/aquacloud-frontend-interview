@@ -12,7 +12,7 @@ export const fetchJokes = async (term: string, page: number = 1) => {
     page: page.toString(),
   });
   if (term !== "") {
-    params.append("query", term);
+    params.append("query", term.toLowerCase());
   }
 
   return (await (await fetch(`/api/jokes?${params}`)).json()) as Page<Joke>;
