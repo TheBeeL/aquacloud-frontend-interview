@@ -50,7 +50,7 @@ A few key points:
 ### 👉 Bonus Points
 
 - [x] Implement jokes search
-- [ ] Your code follows a mobile first approach
+- [x] Your code follows a mobile first approach
 - [x] The utils are documented according to the [`TSDoc`][tsdoc] standard
 - [x] You can choose to implement pagination or infinite scroll
 - [ ] Code Coverage
