@@ -1,11 +1,5 @@
 import { VariantProps, cva } from "class-variance-authority";
-import {
-  ButtonHTMLAttributes,
-  ForwardedRef,
-  HTMLAttributes,
-  HTMLProps,
-  forwardRef,
-} from "react";
+import { ButtonHTMLAttributes, ForwardedRef, forwardRef } from "react";
 
 const variants = cva(["rounded select-none"], {
   variants: {

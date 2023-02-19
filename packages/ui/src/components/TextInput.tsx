@@ -1,11 +1,5 @@
 import { VariantProps, cva } from "class-variance-authority";
-import {
-  ForwardedRef,
-  HTMLAttributes,
-  HTMLProps,
-  InputHTMLAttributes,
-  forwardRef,
-} from "react";
+import { ForwardedRef, InputHTMLAttributes, forwardRef } from "react";
 
 const variants = cva(
   [
