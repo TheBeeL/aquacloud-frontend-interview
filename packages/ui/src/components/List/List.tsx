@@ -5,9 +5,9 @@ import Item from "./Item";
 const variants = cva(["flex flex-col rounded bg-slate-200 dark:bg-slate-800"], {
   variants: {
     density: {
-      default: "gap-3 p-2",
-      comfortable: "gap-2 p-1",
-      compact: "gap-1 p-0",
+      default: "gap-3",
+      comfortable: "gap-2",
+      compact: "gap-1",
     },
   },
   defaultVariants: { density: "default" },

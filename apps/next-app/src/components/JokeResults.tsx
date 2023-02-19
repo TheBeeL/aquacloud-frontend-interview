@@ -38,7 +38,7 @@ const JokeResults = ({}: JokeResultsProps) => {
   }
 
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       {data && (
         <List>
           {data.pages.map(
@@ -51,15 +51,13 @@ const JokeResults = ({}: JokeResultsProps) => {
         </List>
       )}
 
-      <div className="px-2">
-        {!hasNextPage ? (
-          <Alert intent="warning" message="No more jokes" />
-        ) : isFetchingNextPage ? (
-          <Alert intent="info" message="Loading..." />
-        ) : (
-          <Alert ref={ref} message="View more" />
-        )}
-      </div>
+      {!hasNextPage ? (
+        <Alert intent="warning" message="No more jokes" />
+      ) : isFetchingNextPage ? (
+        <Alert intent="info" message="Loading..." />
+      ) : (
+        <Alert ref={ref} message="View more" />
+      )}
     </div>
   );
 };
