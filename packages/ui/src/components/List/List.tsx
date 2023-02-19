@@ -1,5 +1,5 @@
-import { PropsWithChildren, ReactNode } from "react";
 import { VariantProps, cva } from "class-variance-authority";
+import { ReactNode } from "react";
 import Item from "./Item";
 
 const variants = cva(["flex flex-col rounded bg-slate-200 dark:bg-slate-800"], {

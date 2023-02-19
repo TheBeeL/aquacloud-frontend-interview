@@ -1,5 +1,9 @@
 /** @type {import("tailwindcss").Config} */
 module.exports = {
   presets: [require("@aquacloud/tailwind-config")],
-  content: ["./src/**/*.{ts,tsx}", "./src/_app.tsx"],
+  content: [
+    "./src/**/*.{ts,tsx}",
+    "./src/_app.tsx",
+    "../../packages/ui/**/*.{ts,tsx}",
+  ],
 };

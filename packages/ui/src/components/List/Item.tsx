@@ -1,5 +1,5 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { PropsWithChildren, ReactNode } from "react";
+import { ReactNode } from "react";
 
 const variants = cva(
   ["border rounded border-slate-800 dark:border-slate-200"],
