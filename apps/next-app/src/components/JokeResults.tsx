@@ -3,9 +3,11 @@ import { List, Alert } from "@aquacloud/ui";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 
-interface JokeResultsProps {}
+interface JokeResultsProps {
+  term: string;
+}
 
-const JokeResults = ({}: JokeResultsProps) => {
+const JokeResults = ({ term }: JokeResultsProps) => {
   const {
     data,
     isLoading,
@@ -14,13 +16,14 @@ const JokeResults = ({}: JokeResultsProps) => {
     hasNextPage,
     isError,
   } = useInfiniteQuery({
-    queryKey: ["jokes"],
-    queryFn: ({ pageParam = 1 }) => fetchJokes(pageParam),
+    queryKey: ["jokes", term],
+    queryFn: ({ pageParam = 1 }) => fetchJokes(term, pageParam),
     getNextPageParam: (lastpage) => lastpage.next,
     refetchOnWindowFocus: false,
   });
 
   const { ref } = useInView({
+    threshold: 1,
     onChange: (inView) => {
       if (inView) {
         fetchNextPage();
@@ -37,7 +40,11 @@ const JokeResults = ({}: JokeResultsProps) => {
   }
 
   return (
-    <div>
+    <div className="flex flex-col gap-2">
+      <div className="text-center text-sm">
+        Showing results for:
+        <span className="font-bold italic">&quot;{term}&quot;</span>
+      </div>
       {data && (
         <List>
           {data.pages.map(
@@ -50,15 +57,13 @@ const JokeResults = ({}: JokeResultsProps) => {
         </List>
       )}
 
-      <div className="px-2">
-        {!hasNextPage ? (
-          <Alert intent="warning" message="No more jokes" />
-        ) : isFetchingNextPage ? (
-          <Alert intent="info" message="Loading..." />
-        ) : (
-          <Alert ref={ref} message="View more" />
-        )}
-      </div>
+      {!hasNextPage ? (
+        <Alert intent="warning" message="No more jokes" />
+      ) : isFetchingNextPage ? (
+        <Alert intent="info" message="Loading..." />
+      ) : (
+        <Alert ref={ref} message="View more" />
+      )}
     </div>
   );
 };

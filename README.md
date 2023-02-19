@@ -35,29 +35,29 @@ A few key points:
 
 #### Your code must have the following scripts:
 
-- `lint` - to run eslint
-- `test` - to run unit tests
-- `start` - to start the app
-- `build` - to build the app
+- [ ] `lint` - to run eslint
+- [ ] `test` - to run unit tests
+- [ ] `start` - to start the app
+- [ ] `build` - to build the app
 
 ### ✅ Definition of done
 
-- All the scripts are working without errors
-- The web app is working without errors
-- Unit tests are passing
-- Usage of modern hooks is mandatory (no class components)
+- [ ] All the scripts are working without errors
+- [ ] The web app is working without errors
+- [ ] Unit tests are passing
+- [x] Usage of modern hooks is mandatory (no class components)
 
 ### 👉 Bonus Points
 
-- Implement jokes search 
-- Your code follows a mobile first approach
-- The utils are documented according to the [`TSDoc`][tsdoc] standard
-- You can choose to implement pagination or infinite scroll
-- Code Coverage
-- E2E tests via playwright or cypress
-- Github Actions to run in the CI
-- Stale while revalidate approach for data-loaders
-- Your app supports dark mode
+- [ ] Implement jokes search
+- [ ] Your code follows a mobile first approach
+- [ ] The utils are documented according to the [`TSDoc`][tsdoc] standard
+- [x] You can choose to implement pagination or infinite scroll
+- [ ] Code Coverage
+- [ ] E2E tests via playwright or cypress
+- [ ] Github Actions to run in the CI
+- [x] Stale while revalidate approach for data-loaders
+- [x] Your app supports dark mode
 
 ### 👉 Score
 

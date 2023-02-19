@@ -1,7 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority";
 import { ForwardedRef, ReactNode, forwardRef } from "react";
 
-const variants = cva(["rounded p-2"], {
+const variants = cva(["rounded p-2 text-center"], {
   variants: {
     intent: {
       default: "bg-slate-400 dark:bg-slate-600",
