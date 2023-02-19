@@ -3,9 +3,11 @@ import { List, Alert } from "@aquacloud/ui";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 
-interface JokeResultsProps {}
+interface JokeResultsProps {
+  term?: string;
+}
 
-const JokeResults = ({}: JokeResultsProps) => {
+const JokeResults = ({ term = "" }: JokeResultsProps) => {
   const {
     data,
     isLoading,
@@ -14,8 +16,8 @@ const JokeResults = ({}: JokeResultsProps) => {
     hasNextPage,
     isError,
   } = useInfiniteQuery({
-    queryKey: ["jokes"],
-    queryFn: ({ pageParam = 1 }) => fetchJokes(pageParam),
+    queryKey: ["jokes", term],
+    queryFn: ({ pageParam = 1 }) => fetchJokes(term, pageParam),
     getNextPageParam: (lastpage) => lastpage.next,
     refetchOnWindowFocus: false,
   });
