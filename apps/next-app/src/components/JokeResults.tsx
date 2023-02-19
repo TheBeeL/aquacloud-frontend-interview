@@ -21,6 +21,7 @@ const JokeResults = ({}: JokeResultsProps) => {
   });
 
   const { ref } = useInView({
+    threshold: 1,
     onChange: (inView) => {
       if (inView) {
         fetchNextPage();
