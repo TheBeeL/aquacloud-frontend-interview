@@ -32,11 +32,11 @@ const JokeResults = ({ term }: JokeResultsProps) => {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Alert intent="info" message="Loading..." />;
   }
 
   if (isError) {
-    return <div>Server error...</div>;
+    return <Alert intent="error" message="Server Error" />;
   }
 
   return (
@@ -46,7 +46,7 @@ const JokeResults = ({ term }: JokeResultsProps) => {
         <span className="font-bold italic">&quot;{term}&quot;</span>
       </div>
       {data && (
-        <List>
+        <List className="md:grid md:grid-cols-2">
           {data.pages.map(
             (page) =>
               page.data &&

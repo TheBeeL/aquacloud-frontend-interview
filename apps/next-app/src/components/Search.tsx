@@ -14,9 +14,12 @@ const Search = ({ minLength = 3, onSearch }: SearchProps) => {
   };
 
   return (
-    <form className="flex gap-2" onSubmit={handleSubmit}>
+    <form
+      className="flex gap-2 md:flex-col md:items-center"
+      onSubmit={handleSubmit}
+    >
       <TextInput
-        className="grow"
+        className="grow md:w-full"
         placeholder="Search..."
         minLength={minLength}
         value={term}
