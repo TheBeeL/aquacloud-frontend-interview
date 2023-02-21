@@ -4,7 +4,11 @@ import { atomWithStorage } from "jotai/utils";
 
 export const themeAtom = atomWithStorage("theme", "system");
 
-const ThemeSelect = () => {
+interface ThemeSelectProps {
+  className?: string;
+}
+
+const ThemeSelect = ({ className }: ThemeSelectProps) => {
   const [theme, setTheme] = useAtom(themeAtom);
 
   const handleChange = (value: string) => {
@@ -12,11 +16,15 @@ const ThemeSelect = () => {
   };
 
   return (
-    <Select
-      options={{ system: "Adapt to System", dark: "Dark", light: "Light" }}
-      onChange={handleChange}
-      value={theme}
-    />
+    <div className={className}>
+      <label htmlFor="theme">Theme: </label>
+      <Select
+        name="theme"
+        options={{ system: "System", dark: "Dark", light: "Light" }}
+        onChange={handleChange}
+        value={theme}
+      />
+    </div>
   );
 };
 

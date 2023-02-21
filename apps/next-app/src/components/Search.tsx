@@ -2,11 +2,12 @@ import { Button, TextInput } from "@aquacloud/ui";
 import { FormEvent, useState } from "react";
 
 interface SearchProps {
+  className?: string;
   minLength?: number;
   onSearch?: (term: string) => void;
 }
 
-const Search = ({ minLength = 3, onSearch }: SearchProps) => {
+const Search = ({ className = "", minLength = 3, onSearch }: SearchProps) => {
   const [term, setTerm] = useState("");
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -15,7 +16,7 @@ const Search = ({ minLength = 3, onSearch }: SearchProps) => {
 
   return (
     <form
-      className="flex gap-2 md:flex-col md:items-center"
+      className={`${className} flex gap-2 md:flex-col md:items-center`}
       onSubmit={handleSubmit}
     >
       <TextInput
