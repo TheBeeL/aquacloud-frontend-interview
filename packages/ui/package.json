@@ -2,16 +2,17 @@
   "name": "@aquacloud/ui",
   "version": "1.0.0",
   "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": "./dist",
-    "./styles.css": "./dist/styles.css"
-  },
+  "files": [
+    "dist/**"
+  ],
+  "sideEffects": false,
   "license": "ISC",
   "scripts": {
     "lint": "eslint ./src/*.ts*",
     "build": "tsup src/index.tsx --format esm,cjs --dts --external react && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-    "dev": "concurrently \"tsup src/index.tsx --format esm,cjs --dts --external react --watch\" \"tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch\"",
+    "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react",
     "clean": "rm -rf dist"
   },
   "devDependencies": {
