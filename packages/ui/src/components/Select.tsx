@@ -51,10 +51,11 @@ export const Select = forwardRef(
         value={value}
         className={variants({ class: className, density })}
         onChange={handleChange}
+        data-testid="select"
         {...props}
       >
         {Object.keys(options).map((key) => (
-          <option key={key} value={key}>
+          <option key={key} value={key} data-testid="option">
             {options[key]}
           </option>
         ))}
