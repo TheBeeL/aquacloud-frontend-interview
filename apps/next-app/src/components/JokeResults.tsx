@@ -1,4 +1,3 @@
-import { fetchJokes } from "@/utils/fetchJokes";
 import usePaginatedJokesQuery from "@/utils/useJokeInfiniteQuery";
 import { List, Alert } from "@aquacloud/ui";
 import { useInfiniteQuery } from "@tanstack/react-query";

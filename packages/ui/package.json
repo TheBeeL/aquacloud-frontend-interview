@@ -10,11 +10,11 @@
   "sideEffects": false,
   "license": "ISC",
   "scripts": {
+    "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
     "lint": "eslint ./src/*.ts*",
-    "build": "tsup src/index.tsx --format esm,cjs --dts --external react && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react",
-    "clean": "rm -rf dist",
-    "test": "vitest"
+    "test": "vitest",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
     "@aquacloud/tailwind-config": "workspace:*",
