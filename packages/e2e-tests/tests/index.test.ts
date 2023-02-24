@@ -51,7 +51,7 @@ test("infinite scroll", async ({ page }) => {
   await page.getByRole("textbox").fill("money");
   await page.getByRole("button").click();
   while ((await page.getByText(/loading/i).count()) > 0) {}
-  page.keyboard.down("End");
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   while ((await page.getByText(/loading/i).count()) > 0) {}
   await expect(page.locator("li")).toHaveCount(30);
   await expect(page.getByText("No more jokes")).toBeVisible();
