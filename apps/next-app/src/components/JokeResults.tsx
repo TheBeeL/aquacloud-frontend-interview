@@ -1,6 +1,5 @@
-import { fetchJokes } from "@/utils/fetchJokes";
+import usePaginatedJokesQuery from "@/utils/useJokeInfiniteQuery";
 import { List, Alert } from "@aquacloud/ui";
-import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 
 interface JokeResultsProps {
@@ -15,13 +14,7 @@ const JokeResults = ({ term }: JokeResultsProps) => {
     isFetchingNextPage,
     hasNextPage,
     isError,
-  } = useInfiniteQuery({
-    queryKey: ["jokes", term],
-    queryFn: ({ pageParam = 1 }) => fetchJokes(term, pageParam),
-    getNextPageParam: (lastpage) => lastpage.next,
-    refetchOnWindowFocus: false,
-  });
-
+  } = usePaginatedJokesQuery(term);
   const { ref } = useInView({
     threshold: 1,
     onChange: (inView) => {

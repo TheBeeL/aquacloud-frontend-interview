@@ -5,8 +5,8 @@
     "forceConsistentCasingInFileNames": true,
     "incremental": false,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
+    "lib": ["dom", "ES2015"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -14,7 +14,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES2017"
+    "target": "ES6"
   },
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]

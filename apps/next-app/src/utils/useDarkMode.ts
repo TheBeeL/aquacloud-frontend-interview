@@ -27,9 +27,9 @@ const useDarkMode = () => {
 
   useEffect(() => {
     if (theme === "dark" || (theme === "system" && preferDark)) {
-      document.documentElement.classList.add("dark");
+      document.querySelector("body")?.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark");
+      document.querySelector("body")?.classList.remove("dark");
     }
   }, [theme, preferDark]);
 };

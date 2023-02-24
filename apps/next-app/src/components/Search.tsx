@@ -18,6 +18,7 @@ const Search = ({ className = "", minLength = 3, onSearch }: SearchProps) => {
     <form
       className={`${className} flex gap-2 md:flex-col md:items-center`}
       onSubmit={handleSubmit}
+      role="form"
     >
       <TextInput
         className="grow md:w-full"

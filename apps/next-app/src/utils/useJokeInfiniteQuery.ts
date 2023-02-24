@@ -1,3 +1,4 @@
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { Joke, Page } from "@aquacloud/internal";
 
 /**
@@ -17,3 +18,19 @@ export const fetchJokes = async (term: string, page: number = 1) => {
 
   return (await (await fetch(`/api/jokes?${params}`)).json()) as Page<Joke>;
 };
+
+/**
+ * useInfiniteQuery hook for getting data from `/api/jokes`
+ * @param term - Search term to query
+ * @returns an instance of useInfiniteQuery
+ */
+const usePaginatedJokesQuery = (term: string) => {
+  return useInfiniteQuery({
+    queryKey: ["jokes", term],
+    queryFn: ({ pageParam }) => fetchJokes(term, pageParam),
+    getNextPageParam: (lastpage) => lastpage.next,
+    refetchOnWindowFocus: false,
+  });
+};
+
+export default usePaginatedJokesQuery;

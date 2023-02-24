@@ -25,7 +25,11 @@ export const Alert = forwardRef(
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
     return (
-      <div ref={ref} className={variants({ class: className, intent })}>
+      <div
+        ref={ref}
+        className={variants({ class: className, intent })}
+        role="alert"
+      >
         {message}
       </div>
     );
