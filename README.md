@@ -44,7 +44,7 @@ A few key points:
 
 - [x] All the scripts are working without errors
 - [x] The web app is working without errors
-- [ ] Unit tests are passing
+- [x] Unit tests are passing
 - [x] Usage of modern hooks is mandatory (no class components)
 
 ### 👉 Bonus Points
@@ -54,7 +54,7 @@ A few key points:
 - [x] The utils are documented according to the [`TSDoc`][tsdoc] standard
 - [x] You can choose to implement pagination or infinite scroll
 - [ ] Code Coverage
-- [ ] E2E tests via playwright or cypress
+- [x] E2E tests via playwright or cypress
 - [ ] Github Actions to run in the CI
 - [x] Stale while revalidate approach for data-loaders
 - [x] Your app supports dark mode

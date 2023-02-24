@@ -19,7 +19,7 @@ const ThemeSelect = ({ className }: ThemeSelectProps) => {
     <div className={className}>
       <label htmlFor="theme">Theme: </label>
       <Select
-        name="theme"
+        id="theme"
         options={{ system: "System", dark: "Dark", light: "Light" }}
         onChange={handleChange}
         value={theme}
