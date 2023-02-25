@@ -11,6 +11,9 @@
       "cache": false
     },
     "test": {},
+    "test:ci": {
+      "dependsOn": ["^build"]
+    },
     "e2e:test": {
       "dependsOn": ["^build"]
     },

@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
     "coverage": "vitest run --coverage",
-    "test": "vitest",
-    "test:once": "vitest run"
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start",
+    "test:ci": "vitest run",
+    "test": "vitest"
   },
   "dependencies": {
     "@aquacloud/internal": "workspace:*",

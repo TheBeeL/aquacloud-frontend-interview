@@ -11,11 +11,12 @@
   "license": "ISC",
   "scripts": {
     "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
-    "lint": "eslint ./src/*.ts*",
-    "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react",
-    "test": "vitest",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "coverage": "vitest run --coverage",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react",
+    "lint": "eslint ./src/*.ts*",
+    "test:ci": "vitest run",
+    "test": "vitest"
   },
   "devDependencies": {
     "@aquacloud/tailwind-config": "workspace:*",

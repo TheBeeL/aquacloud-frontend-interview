@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "turbo build",
-    "ci": "turbo run build e2e:test lint",
+    "ci": "turbo run build test:ci e2e:test lint",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "start": "turbo start",
