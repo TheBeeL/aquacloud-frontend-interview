@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "coverage": "vitest run --coverage",
-    "test": "vitest"
+    "test": "vitest",
+    "test:once": "vitest run"
   },
   "dependencies": {
     "@aquacloud/internal": "workspace:*",
