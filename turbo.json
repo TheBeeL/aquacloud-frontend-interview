@@ -1,7 +1,7 @@
 {
   "pipeline": {
     "build": {
-      "outputs": [".next"],
+      "outputs": [".next", "dist"],
       "dependsOn": ["^build"]
     },
     "start": {
@@ -11,6 +11,12 @@
       "cache": false
     },
     "test": {},
+    "test:ci": {
+      "dependsOn": ["^build"]
+    },
+    "e2e:test": {
+      "dependsOn": ["^build"]
+    },
     "lint": {},
     "coverage": {}
   }

@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "turbo start",
-    "lint": "turbo lint",
-    "dev": "turbo dev",
     "build": "turbo build",
+    "ci": "turbo run build test:ci e2e:test lint",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "start": "turbo start",
     "test": "turbo test"
   },
   "license": "ISC",
