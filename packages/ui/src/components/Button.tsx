@@ -18,7 +18,14 @@ const variants = cva(["rounded select-none"], {
     disabled: {
       true: "bg-slate-400 text-slate-600 dark:bg-slate-600 dark:text-slate-400",
     },
+    link: {
+      true: "!bg-transparent underline",
+    },
+    invisible: {
+      true: "invisible",
+    },
   },
+  compoundVariants: [{ link: true, disabled: true, class: "no-underline" }],
   defaultVariants: { intent: "default", density: "default" },
 });
 
@@ -28,13 +35,27 @@ interface ButtonProps
 
 export const Button = forwardRef(
   (
-    { className, children, disabled, intent, ...props }: ButtonProps,
+    {
+      className,
+      children,
+      disabled,
+      intent,
+      link,
+      invisible,
+      ...props
+    }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     return (
       <button
         ref={ref}
-        className={variants({ class: className, disabled, intent })}
+        className={variants({
+          class: className,
+          link,
+          disabled,
+          intent,
+          invisible,
+        })}
         disabled={disabled}
         {...props}
       >
