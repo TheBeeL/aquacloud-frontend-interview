@@ -1,4 +1,4 @@
-import InfiniteScrollResults from "@/components/InfiniteScrollResults";
+import PaginatedResults from "@/components/PaginatedResults";
 import Search from "@/components/Search";
 import ThemeSelect from "@/components/ThemeSelect";
 import { NextPage } from "next";
@@ -14,12 +14,12 @@ const Page: NextPage = () => {
           <Search className="md:grow" onSearch={setTerm} />
           <ThemeSelect className="self-end md:self-start" />
         </div>
-        {term && <InfiniteScrollResults term={term} />}
+        {term && <PaginatedResults term={term} />}
       </div>
     </main>
   );
 };
 
-Page.displayName = "HomePage";
+Page.displayName = "Paginated";
 
 export default Page;
