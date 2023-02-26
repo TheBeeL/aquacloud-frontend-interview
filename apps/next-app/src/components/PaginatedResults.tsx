@@ -1,35 +1,29 @@
 import PaginationControls from "@/components/PaginationControls";
 import usePaginatedJokesQuery from "@/utils/useJokeInfiniteQuery";
+import { Joke, Page } from "@aquacloud/internal";
 import { Alert, List } from "@aquacloud/ui";
+import { FetchNextPageOptions, InfiniteData } from "@tanstack/react-query";
 import { useState } from "react";
 
 interface PaginatedResutlsProps {
-  term: string;
+  data: InfiniteData<Page<Joke>>;
+  fetchPage: (options?: FetchNextPageOptions) => void;
+  isFetchingNextPage: boolean;
 }
 
-const PaginatedResults = ({ term }: PaginatedResutlsProps) => {
-  const { data, isLoading, fetchNextPage, isFetchingNextPage, isError } =
-    usePaginatedJokesQuery(term);
+const PaginatedResults = ({
+  data,
+  fetchPage,
+  isFetchingNextPage,
+}: PaginatedResutlsProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const handleNavigate = (page: number) => {
-    fetchNextPage({ pageParam: page, cancelRefetch: true });
+    fetchPage({ pageParam: page, cancelRefetch: true });
     setCurrentPage(page);
   };
 
-  if (isLoading) {
-    return <Alert intent="info" message="Loading..." />;
-  }
-
-  if (isError) {
-    return <Alert intent="error" message="Server Error" />;
-  }
-
   return (
-    <div className="flex flex-col gap-2">
-      <div className="text-center text-sm">
-        Showing results for:
-        <span className="font-bold italic">&quot;{term}&quot;</span>
-      </div>
+    <>
       <PaginationControls
         current={currentPage}
         total={data.pages[0]!.totalPages}
@@ -40,17 +34,15 @@ const PaginatedResults = ({ term }: PaginatedResutlsProps) => {
         <Alert intent="info" message="Loading..." />
       ) : (
         <>
-          {data && (
-            <List className="md:grid md:grid-cols-2">
-              {data.pages
-                .find((page) => page.page === currentPage)
-                ?.data.map((joke) => (
-                  <List.Item key={joke.id} className="overflow-hidden">
-                    {joke.value}
-                  </List.Item>
-                ))}
-            </List>
-          )}
+          <List className="md:grid md:grid-cols-2">
+            {data.pages
+              .find((page) => page.page === currentPage)
+              ?.data.map((joke) => (
+                <List.Item key={joke.id} className="overflow-hidden">
+                  {joke.value}
+                </List.Item>
+              ))}
+          </List>
           <PaginationControls
             current={currentPage}
             total={data.pages[0]!.totalPages}
@@ -58,7 +50,7 @@ const PaginatedResults = ({ term }: PaginatedResutlsProps) => {
           />
         </>
       )}
-    </div>
+    </>
   );
 };
 
