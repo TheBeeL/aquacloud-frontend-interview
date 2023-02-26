@@ -1,14 +1,16 @@
+import { displayAtom } from "@/components/DisplaySelector";
 import InfiniteScrollResults from "@/components/InfiniteScrollResults";
 import PaginatedResults from "@/components/PaginatedResults";
 import usePaginatedJokesQuery from "@/utils/useJokeInfiniteQuery";
 import { Alert } from "@aquacloud/ui";
+import { useAtomValue } from "jotai";
 
 interface JokeResultsProps {
   term: string;
   display?: "scroll" | "paginated";
 }
 
-const JokeResults = ({ term, display = "scroll" }: JokeResultsProps) => {
+const JokeResults = ({ term }: JokeResultsProps) => {
   const {
     data,
     isLoading,
@@ -17,6 +19,7 @@ const JokeResults = ({ term, display = "scroll" }: JokeResultsProps) => {
     hasNextPage,
     isError,
   } = usePaginatedJokesQuery(term);
+  const display = useAtomValue(displayAtom);
 
   if (isLoading) {
     return <Alert intent="info" message="Loading..." />;

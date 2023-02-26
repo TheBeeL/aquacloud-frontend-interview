@@ -1,4 +1,5 @@
-import InfiniteScrollResults from "@/components/InfiniteScrollResults";
+import DisplaySelector from "@/components/DisplaySelector";
+import JokeResults from "@/components/JokeResults";
 import Search from "@/components/Search";
 import ThemeSelect from "@/components/ThemeSelect";
 import { NextPage } from "next";
@@ -12,9 +13,12 @@ const Page: NextPage = () => {
       <div className="container mx-auto flex max-w-2xl flex-col gap-2 px-2">
         <div className="sticky top-0 flex flex-col gap-2 bg-slate-200 py-2 dark:bg-slate-800 md:flex-row">
           <Search className="md:grow" onSearch={setTerm} />
-          <ThemeSelect className="self-end md:self-start" />
+          <div className="flex w-full justify-between gap-2 self-end md:w-auto md:flex-col md:self-start">
+            <ThemeSelect className="w-min md:w-auto" />
+            <DisplaySelector className="w-min md:w-auto" />
+          </div>
         </div>
-        {term && <InfiniteScrollResults term={term} />}
+        {term && <JokeResults term={term} />}
       </div>
     </main>
   );
