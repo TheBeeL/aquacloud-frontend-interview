@@ -8,7 +8,7 @@ interface ThemeSelectProps {
   className?: string;
 }
 
-const ThemeSelect = ({ className }: ThemeSelectProps) => {
+const ThemeSelect = ({ className = "" }: ThemeSelectProps) => {
   const [theme, setTheme] = useAtom(themeAtom);
 
   const handleChange = (value: string) => {

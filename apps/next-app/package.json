@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@aquacloud/tailwind-config": "workspace:*",
+    "@heroicons/react": "^2.0.16",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/testing-library__jest-dom": "^5.14.5",

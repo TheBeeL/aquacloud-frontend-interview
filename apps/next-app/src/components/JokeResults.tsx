@@ -1,9 +1,13 @@
+import { displayAtom } from "@/components/DisplaySelector";
+import InfiniteScrollResults from "@/components/InfiniteScrollResults";
+import PaginatedResults from "@/components/PaginatedResults";
 import usePaginatedJokesQuery from "@/utils/useJokeInfiniteQuery";
-import { List, Alert } from "@aquacloud/ui";
-import { useInView } from "react-intersection-observer";
+import { Alert } from "@aquacloud/ui";
+import { useAtomValue } from "jotai";
 
 interface JokeResultsProps {
   term: string;
+  display?: "scroll" | "paginated";
 }
 
 const JokeResults = ({ term }: JokeResultsProps) => {
@@ -15,14 +19,7 @@ const JokeResults = ({ term }: JokeResultsProps) => {
     hasNextPage,
     isError,
   } = usePaginatedJokesQuery(term);
-  const { ref } = useInView({
-    threshold: 1,
-    onChange: (inView) => {
-      if (inView) {
-        fetchNextPage();
-      }
-    },
-  });
+  const display = useAtomValue(displayAtom);
 
   if (isLoading) {
     return <Alert intent="info" message="Loading..." />;
@@ -38,24 +35,19 @@ const JokeResults = ({ term }: JokeResultsProps) => {
         Showing results for:
         <span className="font-bold italic">&quot;{term}&quot;</span>
       </div>
-      {data && (
-        <List className="md:grid md:grid-cols-2">
-          {data.pages.map(
-            (page) =>
-              page.data &&
-              page.data.map((joke) => (
-                <List.Item key={joke.id}>{joke.value}</List.Item>
-              )),
-          )}
-        </List>
-      )}
-
-      {!hasNextPage ? (
-        <Alert intent="warning" message="No more jokes" />
-      ) : isFetchingNextPage ? (
-        <Alert intent="info" message="Loading..." />
+      {data && display === "scroll" ? (
+        <InfiniteScrollResults
+          data={data}
+          fetchNextPage={fetchNextPage}
+          hasNextPage={hasNextPage}
+          isFetchingNextPage={isFetchingNextPage}
+        />
       ) : (
-        <Alert ref={ref} message="View more" />
+        <PaginatedResults
+          data={data}
+          fetchPage={fetchNextPage}
+          isFetchingNextPage={isFetchingNextPage}
+        />
       )}
     </div>
   );

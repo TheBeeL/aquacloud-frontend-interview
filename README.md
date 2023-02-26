@@ -36,7 +36,7 @@ A few key points:
 #### Your code must have the following scripts:
 
 - [x] `lint` - to run eslint
-- [ ] `test` - to run unit tests
+- [x] `test` - to run unit tests
 - [x] `start` - to start the app
 - [x] `build` - to build the app
 
@@ -53,9 +53,9 @@ A few key points:
 - [x] Your code follows a mobile first approach
 - [x] The utils are documented according to the [`TSDoc`][tsdoc] standard
 - [x] You can choose to implement pagination or infinite scroll
-- [ ] Code Coverage
+- [x] Code Coverage
 - [x] E2E tests via playwright or cypress
-- [ ] Github Actions to run in the CI
+- [x] Github Actions to run in the CI
 - [x] Stale while revalidate approach for data-loaders
 - [x] Your app supports dark mode
 
