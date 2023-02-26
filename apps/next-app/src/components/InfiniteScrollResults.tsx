@@ -2,11 +2,11 @@ import usePaginatedJokesQuery from "@/utils/useJokeInfiniteQuery";
 import { List, Alert } from "@aquacloud/ui";
 import { useInView } from "react-intersection-observer";
 
-interface JokeResultsProps {
+interface InfiniteScrollResultsProps {
   term: string;
 }
 
-const JokeResults = ({ term }: JokeResultsProps) => {
+const InfiniteScrollResults = ({ term }: InfiniteScrollResultsProps) => {
   const {
     data,
     isLoading,
@@ -44,7 +44,9 @@ const JokeResults = ({ term }: JokeResultsProps) => {
             (page) =>
               page.data &&
               page.data.map((joke) => (
-                <List.Item key={joke.id}>{joke.value}</List.Item>
+                <List.Item key={joke.id} className="max-w-full overflow-hidden">
+                  {joke.value}
+                </List.Item>
               )),
           )}
         </List>
@@ -61,4 +63,4 @@ const JokeResults = ({ term }: JokeResultsProps) => {
   );
 };
 
-export default JokeResults;
+export default InfiniteScrollResults;
